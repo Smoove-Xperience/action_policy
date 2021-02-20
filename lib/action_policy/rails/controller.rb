@@ -42,7 +42,7 @@ module ActionPolicy
     # from controller name (i.e. `controller_name.classify.safe_constantize`).
     #
     # Raises `ActionPolicy::Unauthorized` if check failed.
-    def authorize!(record = :__undef__, to: nil, **options)
+    def authorize_actor!(record = :__undef__, to: nil, **options)
       to ||= :"#{action_name}?"
 
       super(record, to: to, **options)

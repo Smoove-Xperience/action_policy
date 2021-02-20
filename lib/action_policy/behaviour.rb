@@ -34,7 +34,7 @@ module ActionPolicy
     # (unless explicitly specified through `with` option).
     #
     # Raises `ActionPolicy::Unauthorized` if check failed.
-    def authorize!(record = :__undef__, to:, **options)
+    def authorize_actor!(record = :__undef__, to:, **options)
       policy = lookup_authorization_policy(record, **options)
 
       Authorizer.call(policy, authorization_rule_for(policy, to))
